@@ -13,7 +13,13 @@ const addNewTask = newTask => {
 };
 
 addForm.addEventListener('submit', e => {
+    
     e.preventDefault();
+    
     const newTask = addForm.add.value.trim();
-    addNewTask(newTask); 
+
+    if(newTask.length) {
+        addNewTask(newTask);
+        addForm.reset();
+    } 
 }); 
