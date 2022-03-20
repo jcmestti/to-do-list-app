@@ -1,6 +1,8 @@
 const addForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
+const search = document.querySelector('.search input');
 
+//Add a new task to the list
 const addNewTask = newTask => {
     const newLi = `
             <li class="list-group-item d-flex justify-content-between align-items-center text-light">
@@ -12,6 +14,7 @@ const addNewTask = newTask => {
     list.innerHTML += newLi;
 };
 
+//Listen for new tasks
 addForm.addEventListener('submit', e => {
     
     e.preventDefault();
@@ -23,3 +26,20 @@ addForm.addEventListener('submit', e => {
         addForm.reset();
     } 
 }); 
+
+//Listen for the removal of tasks
+list.addEventListener('click', e => {
+
+    if (e.target.classList.contains('delete')) {
+        e.target.parentElement.remove();
+    }
+
+});
+
+//Search for a specific task
+search.addEventListener('keyup', () => {
+
+    const seachedTask = search.value.trim();
+    
+
+});
